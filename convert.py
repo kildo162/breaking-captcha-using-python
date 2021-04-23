@@ -26,5 +26,5 @@ def convert_png_to_jpg(file_path):
     logger.info(file_path)
     image = cv2.imread(file_path)
     file_name = Path(file_path).stem
-    cv2.imwrite('{}.jpg'.format(file_name), image, [int(cv2.IMWRITE_JPEG_QUALITY), 95])
+    cv2.imwrite('{}.jpg'.format(file_name), image, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
 
