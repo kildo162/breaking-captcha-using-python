@@ -6,12 +6,13 @@ import time
 import requests as requests
 import glob
 
+IMAGE_TOTAL = 1000
+
 
 def download_captcha_raw():
-
     index = check_index_file()
 
-    for x in range(int(index) + 1, 1000000):
+    for x in range(int(index) + 1, IMAGE_TOTAL):
 
         time_default = 1
 
@@ -42,8 +43,12 @@ def logger(value):
 
 
 def check_index_file():
-    list_of_files = glob.glob('data/raw/*')  # * means all if need specific format then *.csv
-    latest_file = max(list_of_files, key=os.path.getctime)
+    try:
+        list_of_files = glob.glob('data/raw/*')  # * means all if need specific format then *.csv
+        latest_file = max(list_of_files, key=os.path.getctime)
+    except:
+        return -1
+
     return Path(latest_file).stem
 
 

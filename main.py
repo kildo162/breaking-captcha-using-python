@@ -1,10 +1,16 @@
 # -*- coding:utf-8 -*-
+import logging
 from PIL import Image
 import cv2
 from os import listdir
 from os.path import join, isfile
+import convert
 
-IMAGE_TOTAL = 1000
+# Create a custom logger
+import download
+
+logger = logging.getLogger(__name__)
+
 RAW_PATH = "data/raw/"
 SLICED_PATH = "data/sliced/"
 
@@ -39,4 +45,6 @@ def reduce_noise_dir(directory):
 
 
 if __name__ == "__main__":
-    reduce_noise_dir(RAW_PATH)
+    # download.download_captcha_raw()
+    # reduce_noise_dir(RAW_PATH)
+    convert.convert_png_to_jpg_dir(RAW_PATH)

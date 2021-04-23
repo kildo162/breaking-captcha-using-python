@@ -1,6 +1,5 @@
 # Data for parse and machine learning
-data/
-data/raw/
+data/raw/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
